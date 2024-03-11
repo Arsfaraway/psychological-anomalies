@@ -26,12 +26,16 @@ using System.Threading;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using OfficeOpenXml;
+using Reader1.Services;
+using Reader1.Models.Configuration;
+using Reader1.Storage;
+using Reader1.Forms;
 
 namespace Reader1
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -912,6 +916,34 @@ namespace Reader1
                 ListViewItem mes = new ListViewItem(new string[] { eSend.Message });
                 listView1.Items.Add(mes);
             }
+
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+
+            var form2 = new FormSetting();
+            //form2.Closed += (s, args) => this.Close();
+            form2.ShowDialog();
+
+            //if (ConfigurationService.IsConfigured())
+            //{
+            //    ListViewItem greetingItem = new ListViewItem(new string[] { "Ваши данные успешно загружены" });
+
+            //    listView1.Items.Add(greetingItem);
+            //}
+            //else
+            //{
+            //    ListViewItem greetingItem = new ListViewItem(new string[] { "Не удалось загрузить данные" });
+
+            //    listView1.Items.Add(greetingItem);
+            //}
+        }
+
+
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
 
         }
     }
