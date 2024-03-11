@@ -16,7 +16,7 @@ namespace Reader1.Models.Configuration
         public string OrganisationName { get; set; }
 
         //b.Номер Класса;
-        public int? ClassNumber { get; set; }
+        public string ClassNumber { get; set; }
 
         //c.Буква Класса;
         public string ClassLetter { get; set; }
@@ -43,13 +43,13 @@ namespace Reader1.Models.Configuration
         public string AcademicYearStartReporting { get; set; }
 
         //k.Номер четверти старта отчетности;
-        public int? ReportingStartQuarterNumber { get;set; }
+        public string ReportingStartQuarterNumber { get;set; }
 
         //l.Отчетный учебный год;
         public string ReportingAcademicYear { get;set; }
 
         //m.Номер отчетной четверти;
-        public int? ReportingQuarterNumber { get;set; }
+        public string ReportingQuarterNumber { get;set; }
         
     }
 }

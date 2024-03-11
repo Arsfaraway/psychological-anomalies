@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Config = Reader1.Models.Configuration.Configuration;
+
 
 namespace Reader1.Forms
 {
@@ -21,13 +24,28 @@ namespace Reader1.Forms
 
         private void buttonFather_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show("Hello, world.");
+            // MessageBox.Show("Hello, world.");
 
             //form2.Closed += (s, args) => this.Close();
 
             //this.Close();
-            var a = MessageBox.Show("Данные успешно получены!", "Проверка данных", MessageBoxButtons.YesNoCancel);
+            //var a = MessageBox.Show(text1, "Проверка данных", MessageBoxButtons.YesNoCancel);
 
+            Config config = new Config();
+            config.OrganisationName = textBox1.Text;
+            config.ClassNumber = textBox2.Text;
+            config.ClassLetter = textBox3.Text;
+            config.ClassroomTeacherName = textBox4.Text;
+            config.ClassroomTeacherEmail = textBox5.Text;
+            config.ClassroomTeacherPhone = textBox6.Text;
+            config.PsychologistName = textBox7.Text;
+            config.PsychologistEmail = textBox8.Text;
+            config.PsychologistPhone = textBox9.Text;
+            config.AcademicYearStartReporting = textBox10.Text;
+            config.ReportingStartQuarterNumber = textBox11.Text;
+            config.ReportingAcademicYear = textBox12.Text;
+            config.ReportingQuarterNumber = textBox13.Text;
+            // Здесь надо пройти валидацию
         }
 
         private void label2_Click(object sender, EventArgs e)

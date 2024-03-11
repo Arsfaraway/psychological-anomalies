@@ -91,7 +91,8 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.Location = new System.Drawing.Point(571, 229);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.textBox1.Location = new System.Drawing.Point(571, 14);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(275, 22);
             this.textBox1.TabIndex = 7;
@@ -121,7 +122,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(9, 189);
+            this.label4.Location = new System.Drawing.Point(8, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 18);
             this.label4.TabIndex = 12;
@@ -130,7 +131,7 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox2.Location = new System.Drawing.Point(571, 14);
+            this.textBox2.Location = new System.Drawing.Point(571, 56);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(275, 22);
             this.textBox2.TabIndex = 1;
@@ -148,7 +149,7 @@
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox3.Location = new System.Drawing.Point(571, 57);
+            this.textBox3.Location = new System.Drawing.Point(571, 98);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(275, 22);
             this.textBox3.TabIndex = 3;
@@ -166,7 +167,7 @@
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox4.Location = new System.Drawing.Point(571, 99);
+            this.textBox4.Location = new System.Drawing.Point(571, 139);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(275, 22);
             this.textBox4.TabIndex = 4;
@@ -184,7 +185,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox5.Location = new System.Drawing.Point(571, 140);
+            this.textBox5.Location = new System.Drawing.Point(571, 188);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(275, 22);
             this.textBox5.TabIndex = 5;
@@ -192,7 +193,7 @@
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox6.Location = new System.Drawing.Point(571, 268);
+            this.textBox6.Location = new System.Drawing.Point(571, 228);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(275, 22);
             this.textBox6.TabIndex = 8;
@@ -200,7 +201,7 @@
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox7.Location = new System.Drawing.Point(571, 185);
+            this.textBox7.Location = new System.Drawing.Point(571, 267);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(275, 22);
             this.textBox7.TabIndex = 6;
@@ -259,7 +260,7 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox9.Location = new System.Drawing.Point(571, 219);
+            this.textBox9.Location = new System.Drawing.Point(571, 52);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(275, 22);
             this.textBox9.TabIndex = 13;
@@ -267,7 +268,7 @@
             // textBox10
             // 
             this.textBox10.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox10.Location = new System.Drawing.Point(571, 53);
+            this.textBox10.Location = new System.Drawing.Point(571, 96);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(275, 22);
             this.textBox10.TabIndex = 9;
@@ -295,7 +296,7 @@
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox11.Location = new System.Drawing.Point(571, 174);
+            this.textBox11.Location = new System.Drawing.Point(571, 137);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(275, 22);
             this.textBox11.TabIndex = 12;
@@ -303,7 +304,7 @@
             // textBox12
             // 
             this.textBox12.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox12.Location = new System.Drawing.Point(571, 96);
+            this.textBox12.Location = new System.Drawing.Point(571, 177);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(275, 22);
             this.textBox12.TabIndex = 10;
@@ -331,7 +332,7 @@
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox13.Location = new System.Drawing.Point(571, 134);
+            this.textBox13.Location = new System.Drawing.Point(571, 222);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(275, 22);
             this.textBox13.TabIndex = 11;
