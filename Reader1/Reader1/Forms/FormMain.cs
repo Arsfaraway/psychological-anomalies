@@ -42,8 +42,9 @@ namespace Reader1
         public static void SendMessageSimple(string _from, string _to, string _fromcopy, string _subject, string _message, string _attachfilename)
         {
   
-            SmtpClient _smtp = new SmtpClient("smtp.mail.ru", 25);//smtp.yandex.ru;587,25,2525
-            _smtp.Credentials = new NetworkCredential("fa.nsk@mail.ru", "snfsgsd6pzxvwjUjpJi8");//username,password
+            SmtpClient _smtp = new SmtpClient("smtp.gmail.com", 587);
+            
+            _smtp.Credentials = new NetworkCredential("arserm8@gmail.com", "wuzj pedu pphz zwmz");
             _smtp.EnableSsl = true;
             MailMessage _mail = new MailMessage();
             _mail.From = new MailAddress(_from);
@@ -65,19 +66,20 @@ namespace Reader1
             try
             {
                 _smtp.Send(_mail);
+                var a = MessageBox.Show("Ваша почта подтверждена успешно", "Сообщение1", MessageBoxButtons.YesNoCancel);
                 Console.WriteLine("Message sent successfully!");
             }
             catch
             {
+                var a = MessageBox.Show("Не удалось отправить сообщение", "Ошибка", MessageBoxButtons.YesNoCancel);
                 Console.WriteLine("Error!Message not sent!");
             }
         }
         public static void SendMessage(Message _msg, string _message, string _attachfilename)
         {
-
-
-            SmtpClient _smtp = new SmtpClient("smtp.mail.ru", 25);//smtp.yandex.ru;587,25,2525
-            _smtp.Credentials = new NetworkCredential("fa.nsk@mail.ru", "snfsgsd6pzxvwjUjpJi8");//username,password
+            
+            SmtpClient _smtp = new SmtpClient("smtp.mail.ru", 25); // smtp.yandex.ru;587,25,2525
+            _smtp.Credentials = new NetworkCredential("fa.nsk@mail.ru", "snfsgsd6pzxvwjUjpJi8"); // username,password
             _smtp.EnableSsl = true;
 
             MailMessage _mail = new MailMessage();

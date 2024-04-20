@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -9,7 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Config = Reader1.Models.Configuration.Configuration;
-
+using Reader1;
+using Reader1.Messages;
+using Reader1.Forms;
+using System.Runtime.Serialization.Formatters;
 
 namespace Reader1.Forms
 {
@@ -19,24 +24,19 @@ namespace Reader1.Forms
         public FormSetting()
         {
             InitializeComponent();
-            a();
+            ChangedPages();
         }
 
         private void buttonFather_Click(object sender, EventArgs e)
         {
-            // MessageBox.Show("Hello, world.");
-
-            //form2.Closed += (s, args) => this.Close();
-
-            //this.Close();
-            //var a = MessageBox.Show(text1, "Проверка данных", MessageBoxButtons.YesNoCancel);
-
+            // var a = MessageBox.Show(text1, "Проверка данных", MessageBoxButtons.YesNoCancel);
             Config config = new Config();
             config.OrganisationName = textBox1.Text;
             config.ClassNumber = textBox2.Text;
             config.ClassLetter = textBox3.Text;
             config.ClassroomTeacherName = textBox4.Text;
-            config.ClassroomTeacherEmail = textBox5.Text;
+            config.ClassroomTeacherEmail = "arserm8@gmail.com";
+            //config.ClassroomTeacherEmail = textBox5.Text;
             config.ClassroomTeacherPhone = textBox6.Text;
             config.PsychologistName = textBox7.Text;
             config.PsychologistEmail = textBox8.Text;
@@ -45,7 +45,48 @@ namespace Reader1.Forms
             config.ReportingStartQuarterNumber = textBox11.Text;
             config.ReportingAcademicYear = textBox12.Text;
             config.ReportingQuarterNumber = textBox13.Text;
-            // Здесь надо пройти валидацию
+
+            bool flag = false;
+
+            string validationCode = GenerateValidationCode();
+            string fullValidationMessage = "Ваш код для подтверждения почты:\n" + validationCode;
+
+            flag |= StartMessage.MailChecking("arsfaraway@gmail.com", "arserm8@gmail.com", "", "PsychologistProblem", fullValidationMessage, "");
+
+            FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail, validationCode);
+
+            formEnterClassEmail.ShowDialog();            
+
+            while(!formEnterClassEmail.IsCodeValid)
+            {
+                var a = MessageBox.Show("Не удалось отправить сообщение", "Ошибка", MessageBoxButtons.OK);
+                formEnterClassEmail.ShowDialog();
+            }
+
+            var b = MessageBox.Show("Вам на почту был отправлен код верефикации, введите его", "Сообщение1", MessageBoxButtons.OK);
+
+
+
+            //if (flag == false)
+            //{
+
+            //}
+
+            // проверить почту психолога
+
+            //if (StartMessage.IsValidEmail(config.ClassroomTeacherEmail) == false)
+            //{
+            //    flag = true;
+            //}
+
+        }
+
+
+
+        private string GenerateValidationCode()
+        {
+            Random random = new Random();
+            return random.Next(100000, 1000000).ToString("D6"); // Генерация шестизначного кода
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -69,11 +110,11 @@ namespace Reader1.Forms
 
             if (selectedIndex == 0)
             {
-                a();
+                ChangedPages();
             }
             else if (selectedIndex == 1)
             {
-                a();
+                ChangedPages();
             }
         }
 
@@ -87,7 +128,7 @@ namespace Reader1.Forms
             tabControl1.SelectedIndex = tabControl1.SelectedIndex - 1;
         }
 
-        private void a()
+        private void ChangedPages()
         {
             buttonNext.Visible = tabControl1.SelectedIndex != tabControl1.TabPages.Count - 1;
             buttonPrev.Visible = tabControl1.SelectedIndex != 0;

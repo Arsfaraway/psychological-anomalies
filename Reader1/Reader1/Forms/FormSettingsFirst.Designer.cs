@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetting));
             this.buttonSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -67,144 +68,91 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.LemonChiffon;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSave.BackColor = System.Drawing.Color.Gold;
+            resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.ForeColor = System.Drawing.Color.Black;
-            this.buttonSave.Location = new System.Drawing.Point(666, 488);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(198, 39);
-            this.buttonSave.TabIndex = 2;
-            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonFather_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(8, 268);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 18);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Ф.И.О. педагога-психолога школы:";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
             this.textBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.textBox1.Location = new System.Drawing.Point(571, 14);
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(275, 22);
-            this.textBox1.TabIndex = 7;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(9, 229);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(242, 18);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Контактный номер телефона КР:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(8, 15);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(468, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Сокращенное название образовательной организации по Уставу:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(8, 188);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 18);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "E-mail КР:";
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox2.Location = new System.Drawing.Point(571, 56);
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 22);
-            this.textBox2.TabIndex = 1;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(9, 140);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 18);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Ф.И.О. КР:";
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox3.Location = new System.Drawing.Point(571, 98);
+            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(275, 22);
-            this.textBox3.TabIndex = 3;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(9, 99);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Буква Класса:";
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox4.Location = new System.Drawing.Point(571, 139);
+            resources.ApplyResources(this.textBox4, "textBox4");
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(275, 22);
-            this.textBox4.TabIndex = 4;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(9, 57);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 18);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Номер Класса:";
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox5.Location = new System.Drawing.Point(571, 188);
+            resources.ApplyResources(this.textBox5, "textBox5");
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(275, 22);
-            this.textBox5.TabIndex = 5;
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox6.Location = new System.Drawing.Point(571, 228);
+            resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(275, 22);
-            this.textBox6.TabIndex = 8;
             // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox7.Location = new System.Drawing.Point(571, 267);
+            resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(275, 22);
-            this.textBox7.TabIndex = 6;
             // 
             // tabPage1
             // 
@@ -222,120 +170,75 @@
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.textBox6);
             this.tabPage1.Controls.Add(this.textBox7);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(852, 385);
-            this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(6, 13);
+            resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(249, 18);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "E-mail педагога-психолога школы:";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(6, 53);
+            resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(361, 18);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Контактный номер телефона педагога-психолога:";
             // 
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox8.Location = new System.Drawing.Point(571, 12);
+            resources.ApplyResources(this.textBox8, "textBox8");
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(275, 22);
-            this.textBox8.TabIndex = 8;
             // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox9.Location = new System.Drawing.Point(571, 52);
+            resources.ApplyResources(this.textBox9, "textBox9");
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(275, 22);
-            this.textBox9.TabIndex = 13;
             // 
             // textBox10
             // 
             this.textBox10.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox10.Location = new System.Drawing.Point(571, 96);
+            resources.ApplyResources(this.textBox10, "textBox10");
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(275, 22);
-            this.textBox10.TabIndex = 9;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(6, 97);
+            resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(235, 18);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Учебный год старта отчетности:";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(6, 223);
+            resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(193, 18);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Номер отчетной четверти:";
             // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox11.Location = new System.Drawing.Point(571, 137);
+            resources.ApplyResources(this.textBox11, "textBox11");
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(275, 22);
-            this.textBox11.TabIndex = 12;
             // 
             // textBox12
             // 
             this.textBox12.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox12.Location = new System.Drawing.Point(571, 177);
+            resources.ApplyResources(this.textBox12, "textBox12");
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(275, 22);
-            this.textBox12.TabIndex = 10;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(6, 138);
+            resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(258, 18);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Номер четверти старта отчетности:";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(6, 178);
+            resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(172, 18);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Отчетный учебный год:";
             // 
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox13.Location = new System.Drawing.Point(571, 222);
+            resources.ApplyResources(this.textBox13, "textBox13");
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(275, 22);
-            this.textBox13.TabIndex = 11;
             // 
             // tabPage2
             // 
@@ -352,49 +255,36 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.textBox13);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(852, 385);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Visible = false;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(9, 12);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(860, 414);
-            this.tabControl1.TabIndex = 16;
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(9, 488);
+            resources.ApplyResources(this.buttonNext, "buttonNext");
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(198, 39);
-            this.buttonNext.TabIndex = 17;
-            this.buttonNext.Text = "Следующее";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonThen_Click);
             // 
             // buttonPrev
             // 
-            this.buttonPrev.Location = new System.Drawing.Point(9, 488);
+            resources.ApplyResources(this.buttonPrev, "buttonPrev");
             this.buttonPrev.Name = "buttonPrev";
-            this.buttonPrev.Size = new System.Drawing.Size(198, 39);
-            this.buttonPrev.TabIndex = 18;
-            this.buttonPrev.Text = "Предыдущее";
             this.buttonPrev.UseVisualStyleBackColor = true;
             this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // FormSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(876, 539);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonNext);
@@ -402,7 +292,6 @@
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "FormSetting";
-            this.Text = "Настройки программы";
             this.Load += new System.EventHandler(this.FormSetting_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
