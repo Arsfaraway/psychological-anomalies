@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reader1.Messages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,31 @@ namespace Reader1.Forms
 {
     public partial class FormEnterClassEmail : Form
     {
+        private string teacherEmail;
         private string validationCode;
-        private bool isCodeValid = false;
 
-        public bool IsCodeValid
+        public string GetTeacherEmail
         {
-            get { return isCodeValid; }
+            get { return teacherEmail; }
         }
-        public FormEnterClassEmail(string teacherEmail, string validCode)
+
+        public void SetTeacherEmail(string teachEmail)
+        {
+            teacherEmail = teachEmail;
+        }
+        public FormEnterClassEmail(string teachEmail)
         {
             InitializeComponent();
-            validationCode = validCode;
-            SetTextBoxTwoText(teacherEmail);
+            textBox1.Text = teachEmail;
+            label3.Visible = false;
+            textBox4.Visible = false;
+            button1.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
         }
         public void SetTextBoxTwoText(string teacherEmail)
         {
-            label2.Text = teacherEmail;
+           textBox1.Text = teacherEmail;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -35,13 +45,66 @@ namespace Reader1.Forms
 
         }
 
+        private void ButtonEnterVerifyCode(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            button4.Visible = false;
+            label3.Visible = true;
+            textBox4.Visible = true;
+            button1.Visible = true;
+        }
+
+        private void ButtonTryAgainEnterEmail(object sender, EventArgs e)
+        {
+            button3.Visible = false;
+            button4.Visible = false;
+            MessageBox.Show("Введите корректный почтовый адрес!", "Ошибка", MessageBoxButtons.OK);
+        }
+
         private void ButtonClickConfirmCode(object sender, EventArgs e)
         {
-            if(validationCode == textBox4.Text.Trim())
+            if (validationCode == textBox4.Text.Trim())
             {
-                isCodeValid = true;
+                MessageBox.Show("Ваш почтовый адрес был подтвержден!", "Успех", MessageBoxButtons.OK);
+                teacherEmail = textBox1.Text;
+                this.Close();
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("Код верификации некорректен!", "Ошибка", MessageBoxButtons.OK);
+            }
         }
+
+        private void ButtonClickConfirmEmail(object sender, EventArgs e)
+        {
+            teacherEmail = textBox1.Text;
+
+            bool flag = false;
+
+            validationCode = GenerateValidationCode();
+            string fullValidationMessage = "Ваш код для подтверждения почты:\n" + validationCode;
+
+            flag |= StartMessage.MailChecking("arserm8@gmail.com", teacherEmail, "", "PsychologistProblem", fullValidationMessage, "");
+
+            if (flag == false)
+            {
+                MessageBox.Show("Введите корректный почтовый адрес!", "Ошибка", MessageBoxButtons.OK);
+            }
+            else
+            {
+                button3.Visible = true;
+                button4.Visible = true;
+            }
+        }
+        private string GenerateValidationCode()
+        {
+            Random random = new Random();
+            return random.Next(100000, 1000000).ToString("D6"); // Генерация шестизначного кода
+        }
+
+        //private void FormEnterClassEmail_Load(object sender, EventArgs e)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
     }
 }

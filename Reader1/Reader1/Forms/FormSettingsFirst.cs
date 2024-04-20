@@ -29,14 +29,13 @@ namespace Reader1.Forms
 
         private void buttonFather_Click(object sender, EventArgs e)
         {
-            // var a = MessageBox.Show(text1, "Проверка данных", MessageBoxButtons.YesNoCancel);
             Config config = new Config();
             config.OrganisationName = textBox1.Text;
             config.ClassNumber = textBox2.Text;
             config.ClassLetter = textBox3.Text;
             config.ClassroomTeacherName = textBox4.Text;
-            config.ClassroomTeacherEmail = "arserm8@gmail.com";
-            //config.ClassroomTeacherEmail = textBox5.Text;
+            // config.ClassroomTeacherEmail = "arsfaraway@gmail.com";
+            config.ClassroomTeacherEmail = textBox5.Text;
             config.ClassroomTeacherPhone = textBox6.Text;
             config.PsychologistName = textBox7.Text;
             config.PsychologistEmail = textBox8.Text;
@@ -46,47 +45,18 @@ namespace Reader1.Forms
             config.ReportingAcademicYear = textBox12.Text;
             config.ReportingQuarterNumber = textBox13.Text;
 
-            bool flag = false;
+          
+            FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail);
 
-            string validationCode = GenerateValidationCode();
-            string fullValidationMessage = "Ваш код для подтверждения почты:\n" + validationCode;
+            formEnterClassEmail.SetTeacherEmail(config.ClassroomTeacherEmail);
+            formEnterClassEmail.ShowDialog();
 
-            flag |= StartMessage.MailChecking("arsfaraway@gmail.com", "arserm8@gmail.com", "", "PsychologistProblem", fullValidationMessage, "");
+            config.ClassroomTeacherEmail = formEnterClassEmail.GetTeacherEmail;
 
-            FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail, validationCode);
+            // todo проверить психолога на правильность почты! Только как?
+            // todo сохранить информацию в базу данных
 
-            formEnterClassEmail.ShowDialog();            
-
-            while(!formEnterClassEmail.IsCodeValid)
-            {
-                var a = MessageBox.Show("Не удалось отправить сообщение", "Ошибка", MessageBoxButtons.OK);
-                formEnterClassEmail.ShowDialog();
-            }
-
-            var b = MessageBox.Show("Вам на почту был отправлен код верефикации, введите его", "Сообщение1", MessageBoxButtons.OK);
-
-
-
-            //if (flag == false)
-            //{
-
-            //}
-
-            // проверить почту психолога
-
-            //if (StartMessage.IsValidEmail(config.ClassroomTeacherEmail) == false)
-            //{
-            //    flag = true;
-            //}
-
-        }
-
-
-
-        private string GenerateValidationCode()
-        {
-            Random random = new Random();
-            return random.Next(100000, 1000000).ToString("D6"); // Генерация шестизначного кода
+            this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)

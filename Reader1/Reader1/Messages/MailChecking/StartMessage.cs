@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -17,11 +18,17 @@ namespace Reader1.Messages
 
             SmtpClient _smtp = new SmtpClient("smtp.gmail.com", 587);
 
-            _smtp.Credentials = new NetworkCredential("arserm8@gmail.co", "wuzj pedu pphz zwmz");
+            string password = File.ReadAllText(@"C:\Users\hasee\Desktop\psychological-anomalies\password.txt");
+            _smtp.Credentials = new NetworkCredential("arserm8@gmail.com", password);
             _smtp.EnableSsl = true;
             MailMessage _mail = new MailMessage();
-            _mail.From = new MailAddress(_from);
-            _mail.To.Add(_to);
+            try
+            {
+                _mail.From = new MailAddress(_from);
+                _mail.To.Add(_to);
+            }
+
+            catch { return false; }
 
             if (_fromcopy.Length != 0)
             {
@@ -39,12 +46,10 @@ namespace Reader1.Messages
             try
             {
                 _smtp.Send(_mail);
-                //var a = MessageBox.Show("Вам на почту был отправлен код верефикации, введите его", "Сообщение1", MessageBoxButtons.YesNoCancel);
                 return true;
             }
             catch
             {
-                //var a = MessageBox.Show("Не удалось отправить сообщение", "Ошибка", MessageBoxButtons.YesNoCancel);
                 return false;
             }
         }
