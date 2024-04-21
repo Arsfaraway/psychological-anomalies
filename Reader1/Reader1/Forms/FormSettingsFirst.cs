@@ -1,4 +1,5 @@
 ﻿using System;
+using Npgsql;
 using System.Net;
 using System.Net.Mail;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ using Reader1;
 using Reader1.Messages;
 using Reader1.Forms;
 using System.Runtime.Serialization.Formatters;
+using Reader1.Models.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Reader1.Database;
+using Microsoft.Extensions.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace Reader1.Forms
 {
@@ -34,7 +41,6 @@ namespace Reader1.Forms
             config.ClassNumber = textBox2.Text;
             config.ClassLetter = textBox3.Text;
             config.ClassroomTeacherName = textBox4.Text;
-            // config.ClassroomTeacherEmail = "arsfaraway@gmail.com";
             config.ClassroomTeacherEmail = textBox5.Text;
             config.ClassroomTeacherPhone = textBox6.Text;
             config.PsychologistName = textBox7.Text;
@@ -54,7 +60,12 @@ namespace Reader1.Forms
             config.ClassroomTeacherEmail = formEnterClassEmail.GetTeacherEmail;
 
             // todo проверить психолога на правильность почты! Только как?
-            // todo сохранить информацию в базу данных
+
+            string connectionString = "Host = localhost; Port = 5432; Username = postgres; Password = Valter123; Database = SchoolConfigurations;";
+
+            var dbContext = new DatabaseContext(connectionString);
+            dbContext.SaveConfiguration(config);
+
 
             this.Close();
         }
@@ -67,7 +78,6 @@ namespace Reader1.Forms
         {
 
         }
-
 
         private void FormSetting_Load(object sender, EventArgs e)
         {
