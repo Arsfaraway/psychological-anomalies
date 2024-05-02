@@ -182,6 +182,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="DataChecking\FieldsCorrectnessChecking .cs" />
+    <Compile Include="DataChecking\MainFieldChecking.cs" />
+    <Compile Include="Forms\CheckingInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckingInformation.Designer.cs">
+      <DependentUpon>CheckingInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormEnterClassEmail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +215,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ConfigurationService.cs" />
     <Compile Include="Storage\FileStorage.cs" />
+    <EmbeddedResource Include="Forms\CheckingInformation.resx">
+      <DependentUpon>CheckingInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEnterClassEmail.resx">
       <DependentUpon>FormEnterClassEmail.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +236,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="appsettings.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

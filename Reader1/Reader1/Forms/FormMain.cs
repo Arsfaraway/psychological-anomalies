@@ -30,11 +30,14 @@ using Reader1.Services;
 using Reader1.Models.Configuration;
 using Reader1.Storage;
 using Reader1.Forms;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace Reader1
 {
     public partial class FormMain : Form
     {
+        private IConfigurationRoot _configuration;
         public FormMain()
         {
             InitializeComponent();
@@ -924,25 +927,18 @@ namespace Reader1
         private void buttonSettings_Click(object sender, EventArgs e)
         {
 
-            var form2 = new FormSetting();
-            //form2.Closed += (s, args) => this.Close();
-            form2.ShowDialog();
+            //var form2 = new FormSetting();
+            //form2.ShowDialog();
 
-            //if (ConfigurationService.IsConfigured())
-            //{
-            //    ListViewItem greetingItem = new ListViewItem(new string[] { "Ваши данные успешно загружены" });
 
-            //    listView1.Items.Add(greetingItem);
-            //}
-            //else
-            //{
-            //    ListViewItem greetingItem = new ListViewItem(new string[] { "Не удалось загрузить данные" });
-
-            //    listView1.Items.Add(greetingItem);
-            //}
+            //9UpdateConfig(true);
         }
 
-
+        //private void UpdateConfig(bool flag)
+        //{
+        //     string adf = _configuration["IsSettingsFilled"];
+        //    //  = flag.ToString()
+        //}
 
         private void FormMain_Load(object sender, EventArgs e)
         {

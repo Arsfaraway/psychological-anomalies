@@ -21,12 +21,13 @@ using Microsoft.EntityFrameworkCore;
 using Reader1.Database;
 using Microsoft.Extensions.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+using Reader1.DataChecking;
 
 namespace Reader1.Forms
 {
     public partial class FormSetting : Form
     {
+        public bool IsFilled {  get; set; }
 
         public FormSetting()
         {
@@ -50,7 +51,6 @@ namespace Reader1.Forms
             config.ReportingStartQuarterNumber = textBox11.Text;
             config.ReportingAcademicYear = textBox12.Text;
             config.ReportingQuarterNumber = textBox13.Text;
-
           
             FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail);
 
@@ -59,13 +59,15 @@ namespace Reader1.Forms
 
             config.ClassroomTeacherEmail = formEnterClassEmail.GetTeacherEmail;
 
-            // todo проверить психолога на правильность почты! Только как?
+            MainFieldChecking.CheckAllFields(config);
 
-            string connectionString = "Host = localhost; Port = 5432; Username = postgres; Password = Valter123; Database = SchoolConfigurations;";
+            IsFilled = MainFieldChecking.IsFilled;
 
-            var dbContext = new DatabaseContext(connectionString);
-            dbContext.SaveConfiguration(config);
 
+            //string connectionString = "Host = localhost; Port = 5432; Username = postgres; Password = Valter123; Database = SchoolConfigurations;";
+
+            //var dbContext = new DatabaseContext(connectionString);
+            //dbContext.SaveConfiguration(config);
 
             this.Close();
         }
