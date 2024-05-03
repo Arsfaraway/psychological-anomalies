@@ -32,12 +32,13 @@ using Reader1.Storage;
 using Reader1.Forms;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 
 namespace Reader1
 {
     public partial class FormMain : Form
     {
-        private IConfigurationRoot _configuration;
+        private readonly IConfigurationRoot _configuration;
         public FormMain()
         {
             InitializeComponent();
@@ -927,18 +928,30 @@ namespace Reader1
         private void buttonSettings_Click(object sender, EventArgs e)
         {
 
-            //var form2 = new FormSetting();
-            //form2.ShowDialog();
+            var form2 = new FormSetting();
+            form2.ShowDialog();
 
-
-            //9UpdateConfig(true);
+            UpdateConfig(form2.IsFilled);
         }
 
-        //private void UpdateConfig(bool flag)
-        //{
-        //     string adf = _configuration["IsSettingsFilled"];
-        //    //  = flag.ToString()
-        //}
+        private void UpdateConfig(bool flag)
+        {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+
+            string relativePath = Path.Combine("..", "..", "appsettings.json");
+
+            string fullPath = Path.GetFullPath(Path.Combine(basePath, relativePath));
+
+            string json = File.ReadAllText(fullPath);
+
+            JObject jObject = JObject.Parse(json);
+
+            jObject["IsSettingsFilled"] = flag;
+
+            string newJson = jObject.ToString();
+
+            File.WriteAllText(fullPath, newJson);
+        }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
