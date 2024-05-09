@@ -22,8 +22,9 @@ namespace Reader1.DataChecking
 
         private static string[] configNames = { "Сокращенное название образовательной организации по Уставу", "Номер Класса",
             "Буква Класса", "Ф.И.О. КР", "E-mail КР", "Контактный номер телефона КР", "Ф.И.О. педагога-психолога школы",
-            "E-mail педагога-психолога школы", "Контактный номер телефона педагога-психолога", "Учебный год старта отчетности",
-            "Номер четверти старта отчетности", "Отчетный учебный год", "Номер отчетной четверти"};
+            "E-mail педагога-психолога школы", "Контактный номер телефона педагога-психолога" }; //, "Учебный год старта отчетности",
+            //"Номер четверти старта отчетности", "Отчетный учебный год", "Номер отчетной четверти"};
+
         // todo ресурс файлы
 
         public static void CheckAllFields(Config config)
@@ -33,13 +34,14 @@ namespace Reader1.DataChecking
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckOrganizationName, PropertyNames = new string[] { "OrganisationName" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckClassNumber, PropertyNames = new string[] { "ClassNumber" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckClassLetter, PropertyNames = new string[] { "ClassLetter" } },
-            new MethodStructure { Method =  FieldsCorrectnessChecking.CheckName, PropertyNames = new string[] { "ClassroomTeacherName", "PsychologistName" } },
+            new MethodStructure { Method = FieldsCorrectnessChecking.CheckName, PropertyNames = new string[] { "ClassroomTeacherName", "PsychologistName" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckEmail, PropertyNames = new string[] { "ClassroomTeacherEmail", "PsychologistEmail" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckPhone, PropertyNames = new string[] { "ClassroomTeacherPhone", "PsychologistPhone" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.QuarterNumber, PropertyNames = new string[] { "ReportingStartQuarterNumber", "ReportingQuarterNumber" } },
             new MethodStructure { Method = FieldsCorrectnessChecking.CheckYear, PropertyNames = new string[] { "AcademicYearStartReporting", "ReportingAcademicYear" } }
 };
             int counter = 0;
+
             foreach (var property in typeof(Config).GetProperties())
             {
                 if (property.CanRead)

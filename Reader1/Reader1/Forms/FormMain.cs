@@ -16,6 +16,7 @@ using OpenPop.Mime;
 using OpenPop.Pop3;
 using OpenPop.Common;
 
+
 using Message = OpenPop.Mime.Message;
 using System.Net;
 using System.Net.Mail;
@@ -39,9 +40,11 @@ namespace Reader1
     public partial class FormMain : Form
     {
         private readonly IConfigurationRoot _configuration;
+        // private readonly NotifyIcon notifyIcon;
         public FormMain()
         {
             InitializeComponent();
+            // InitializeNotifyIcon();
         }
         public static void SendMessageSimple(string _from, string _to, string _fromcopy, string _subject, string _message, string _attachfilename)
         {
@@ -930,7 +933,7 @@ namespace Reader1
 
             var form2 = new FormSetting();
             form2.ShowDialog();
-
+            
             UpdateConfig(form2.IsFilled);
         }
 

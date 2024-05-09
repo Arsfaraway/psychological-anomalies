@@ -32,11 +32,75 @@ namespace Reader1.Forms
         public FormSetting()
         {
             InitializeComponent();
+
+            textBox2.TextChanged += TextBox_TextChanged;
+            textBox3.TextChanged += TextBox_TextChanged;
+            textBox4.TextChanged += TextBox_TextChanged;
+            textBox5.TextChanged += TextBox_TextChanged;
+            textBox6.TextChanged += TextBox_TextChanged;
+            textBox7.TextChanged += TextBox_TextChanged;
+            textBox8.TextChanged += TextBox_TextChanged;
+            textBox9.TextChanged += TextBox_TextChanged;
+
             ChangedPages();
+        }
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            switch (textBox.Name)
+            {
+                case "textBox2":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckClassNumber, label10);
+                    break;
+                case "textBox3":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckClassLetter, label11);
+                    break;
+                case "textBox4":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckName, label12);
+                    break;
+                case "textBox5":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckEmail, label13);
+                    break;
+                case "textBox6":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckPhone, label21);
+                    break;
+                case "textBox7":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckName, label22);
+                    break;
+                case "textBox8":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckEmail, label23);
+                    break;
+                case "textBox9":
+                    CheckTextBox(textBox, FieldsCorrectnessChecking.CheckPhone, label24);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void CheckTextBox(TextBox textBox, Func<string, bool> validationMethod, Label errorLabel)
+        {
+            if (validationMethod(textBox.Text) == false)
+            {
+                errorLabel.Text = "Некорректное значение!";
+                IsFilled = false;
+            }
+            else
+            {
+                errorLabel.Text = "";
+                IsFilled = true;
+            }
         }
 
         private void buttonFather_Click(object sender, EventArgs e)
         {
+           if (IsFilled == false)
+           {
+                MessageBox.Show("Проверьте корректность полей!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Config config = new Config();
             config.OrganisationName = textBox1.Text;
             config.ClassNumber = textBox2.Text;
@@ -47,10 +111,12 @@ namespace Reader1.Forms
             config.PsychologistName = textBox7.Text;
             config.PsychologistEmail = textBox8.Text;
             config.PsychologistPhone = textBox9.Text;
-            config.AcademicYearStartReporting = textBox10.Text;
-            config.ReportingStartQuarterNumber = textBox11.Text;
-            config.ReportingAcademicYear = textBox12.Text;
-            config.ReportingQuarterNumber = textBox13.Text;
+
+            // todo автоматически вычислять эти поля:
+            // config.AcademicYearStartReporting = textBox10.Text;
+            // config.ReportingStartQuarterNumber = textBox11.Text;
+            // config.ReportingAcademicYear = textBox12.Text;
+            // config.ReportingQuarterNumber = textBox13.Text;
           
             FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail);
 
@@ -59,15 +125,17 @@ namespace Reader1.Forms
 
             config.ClassroomTeacherEmail = formEnterClassEmail.GetTeacherEmail;
 
-            MainFieldChecking.CheckAllFields(config);
-
-            IsFilled = MainFieldChecking.IsFilled;
 
 
-            //string connectionString = "Host = localhost; Port = 5432; Username = postgres; Password = Valter123; Database = SchoolConfigurations;";
+            //MainFieldChecking.CheckAllFields(config);
 
-            //var dbContext = new DatabaseContext(connectionString);
-            //dbContext.SaveConfiguration(config);
+            //IsFilled = MainFieldChecking.IsFilled;
+
+
+            string connectionString = "Host = localhost; Port = 5432; Username = postgres; Password = Valter123; Database = SchoolConfigurations;";
+
+            var dbContext = new DatabaseContext(connectionString);
+            dbContext.SaveConfiguration(config);
 
             this.Close();
         }
@@ -98,6 +166,10 @@ namespace Reader1.Forms
             {
                 ChangedPages();
             }
+            else if (selectedIndex == 2)
+            {
+                ChangedPages();
+            }
         }
 
         private void buttonThen_Click(object sender, EventArgs e)
@@ -115,6 +187,16 @@ namespace Reader1.Forms
             buttonNext.Visible = tabControl1.SelectedIndex != tabControl1.TabPages.Count - 1;
             buttonPrev.Visible = tabControl1.SelectedIndex != 0;
             buttonSave.Visible = tabControl1.SelectedIndex != 0;
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
