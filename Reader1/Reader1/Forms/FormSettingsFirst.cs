@@ -33,6 +33,7 @@ namespace Reader1.Forms
         {
             InitializeComponent();
 
+            textBox1.TextChanged += TextBox_TextChanged;
             textBox2.TextChanged += TextBox_TextChanged;
             textBox3.TextChanged += TextBox_TextChanged;
             textBox4.TextChanged += TextBox_TextChanged;
@@ -50,6 +51,16 @@ namespace Reader1.Forms
 
             switch (textBox.Name)
             {
+                case "textBox1":
+                    if (textBox.Text == "")
+                    {
+                        label25.Text = "* Данное поле обязательно для заполнения";
+                    }
+                    else
+                    {
+                        label25.Text = "";
+                    }
+                    break;
                 case "textBox2":
                     CheckTextBox(textBox, FieldsCorrectnessChecking.CheckClassNumber, label10);
                     break;
@@ -81,6 +92,12 @@ namespace Reader1.Forms
 
         private void CheckTextBox(TextBox textBox, Func<string, bool> validationMethod, Label errorLabel)
         {
+            if (textBox.Text == "")
+            {
+                errorLabel.Text = "* Данное поле обязательно для заполнения";
+                IsFilled = false;
+                return;
+            }
             if (validationMethod(textBox.Text) == false)
             {
                 errorLabel.Text = "Некорректное значение!";
@@ -91,13 +108,14 @@ namespace Reader1.Forms
                 errorLabel.Text = "";
                 IsFilled = true;
             }
+            DateTime.Now
         }
 
         private void buttonFather_Click(object sender, EventArgs e)
         {
            if (IsFilled == false)
            {
-                MessageBox.Show("Проверьте корректность полей!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Проверьте корректность и заполненость полей!!!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -113,11 +131,12 @@ namespace Reader1.Forms
             config.PsychologistPhone = textBox9.Text;
 
             // todo автоматически вычислять эти поля:
-            // config.AcademicYearStartReporting = textBox10.Text;
-            // config.ReportingStartQuarterNumber = textBox11.Text;
-            // config.ReportingAcademicYear = textBox12.Text;
-            // config.ReportingQuarterNumber = textBox13.Text;
-          
+
+            config.AcademicYearStartReporting = DateTime.Now.Year.ToString();
+            config.ReportingStartQuarterNumber = "222";
+            config.ReportingAcademicYear = "333";
+            config.ReportingQuarterNumber = "444";
+
             FormEnterClassEmail formEnterClassEmail = new FormEnterClassEmail(config.ClassroomTeacherEmail);
 
             formEnterClassEmail.SetTeacherEmail(config.ClassroomTeacherEmail);
@@ -195,6 +214,11 @@ namespace Reader1.Forms
         }
 
         private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
